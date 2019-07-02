@@ -77,4 +77,4 @@ class CommonFunctions():
         WorkingDirectory = os.path.join(ScreenShot_ReportFile_Path, 'ScreenShots', ModuleName, TCname)
         PerformActions.createdirectory(WorkingDirectory)
         strTime = time.asctime().split(' ')
-        MyConfigFiles.driver.get_screenshot_as_file(WorkingDirectory + '/' + strTime[3].replace(':', '')+ '_' +FileName+'.png')
+        MyConfigFiles.driver.get_screenshot_as_file(WorkingDirectory + '/' + strTime[4].replace(':', '')+ '_' +FileName+'.png')
