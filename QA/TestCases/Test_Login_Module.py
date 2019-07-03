@@ -8,11 +8,11 @@ import pytest
 class Test_QETLogin_Application():
     global objCommonLib
     objCommonLib=CommonFunctions()
-
     def test_TC001_SCAR_LoginValidCredentials(self,setup,TestData):
         login=login_Page()
         objCommonLib.capture_screenshot('Login page')
         login.QET_Login(TestData['UserName'],TestData['Password'])
+        #login.QET_Login("nnukella", "Juniper@190229")
         time.sleep(5)
         strTitle=MyConfigFiles.driver.title
         objCommonLib.capture_screenshot('Login successfull')
