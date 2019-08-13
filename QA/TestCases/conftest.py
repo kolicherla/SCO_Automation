@@ -5,6 +5,8 @@ from QA.Utilities.PerformAction import PerformActions
 import shutil
 import os
 
+
+
 global objCommonLib
 objCommonLib=CommonFunctions()
 
@@ -53,6 +55,7 @@ def setup():
     MyConfigFiles.driver.get ( MyConfigFiles.QET_AppURL )
     MyConfigFiles.driver.maximize_window()
 
+
     yield
     MyConfigFiles.driver.close()
     MyConfigFiles.driver.quit()
@@ -69,3 +72,13 @@ def TestData():
 def movfiletodir(file_name):
     PerformActions._createdirectory(MyConfigFiles.ScreenShot_ReportFile_Path + 'Failed')
     shutil.move(MyConfigFiles.ScreenShot_ReportFile_Path + file_name, MyConfigFiles.ScreenShot_ReportFile_Path + 'Failed')
+
+
+
+
+
+
+
+
+
+
