@@ -57,8 +57,8 @@ def setup():
 
 
     yield
-    MyConfigFiles.driver.close()
-    MyConfigFiles.driver.quit()
+    # MyConfigFiles.driver.close()
+    # MyConfigFiles.driver.quit()
 
 
 @pytest.fixture()

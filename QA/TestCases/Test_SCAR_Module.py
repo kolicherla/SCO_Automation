@@ -1,4 +1,5 @@
 from QA.PageObjects.Login_Page import login_Page
+from QA.PageObjects.CreateSCAR_Page import createSCAR_Page
 from QA.Base.Config import MyConfigFiles
 from QA.PageObjects.Opportunities_Page import opportunity_Page
 from QA.Utilities.CommonLib import CommonFunctions
@@ -11,9 +12,21 @@ class Test_QETLogin_Application():
     @pytest.mark.regression
     def test_TC001_SCAR_CreatingSCAR(self,setup,TestData):
         login=login_Page()
+        createScar=createSCAR_Page()
         objCommonLib.capture_screenshot('Login page')
         login.QET_Login(TestData['UserName'],TestData['Password'])
+        createScar.CreateSCAR(TestData['ProblemDescription'],TestData['AffectedPart'],TestData['UserGroup'],
+                              TestData['Supplier'],TestData['Contact'],TestData['Escalation'],TestData['Jn_Escalation'])
 
+
+
+
+
+
+
+
+        # @pytest.mark.regression
+        # def test_TC001_SCAR_CreatingSCAR2(self, setup, TestData):
 
 
 

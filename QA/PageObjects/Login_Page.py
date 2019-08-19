@@ -1,6 +1,5 @@
 from QA.Base.Config import MyConfigFiles
 from QA.Locators.Test_Locators import MyJuniperLocators
-from selenium import webdriver
 
 class login_Page():
 
