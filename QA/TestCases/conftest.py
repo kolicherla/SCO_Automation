@@ -1,9 +1,11 @@
 from QA.Utilities.CommonLib import CommonFunctions
 from QA.Base.Config import MyConfigFiles
 import pytest
+import requests
 from QA.Utilities.PerformAction import PerformActions
 import shutil
 import os
+import time
 
 
 
@@ -47,19 +49,20 @@ def _capture_screenshot(name):
     ScreenShot_ReportFile_Path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"TestReport\\")
     MyConfigFiles.driver.get_screenshot_as_file(ScreenShot_ReportFile_Path + name)
 
-
-@pytest.fixture #(scope='module', autouse=True)
+#make scope is uncomment if you login and logout onnly once
+# @pytest.fixture (scope='module', autouse=True)
+@pytest.fixture (autouse=True)
 def setup():
+    # objCommonLib.LaunchBrowser(MyConfigFiles.QET_AppURL)
     objCommonLib.SelectBrowser(MyConfigFiles.BrowserType)
+    # objCommonLib.clear_cache()
     MyConfigFiles.driver.implicitly_wait(MyConfigFiles.Implicit_Time_Out)
-    MyConfigFiles.driver.get ( MyConfigFiles.QET_AppURL )
+    MyConfigFiles.driver.get(MyConfigFiles.QET_AppURL)
     MyConfigFiles.driver.maximize_window()
 
-
     yield
-    # MyConfigFiles.driver.close()
-    # MyConfigFiles.driver.quit()
-
+    MyConfigFiles.driver.close()
+    MyConfigFiles.driver.quit()
 
 @pytest.fixture()
 def TestData():
