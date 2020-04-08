@@ -1,4 +1,4 @@
-from QA.PageObjects.Test_Locators import QET
+from QA.PageObjects.Test_Locators import PCN
 from QA.Utilities.PerformAction import PerformActions
 from QA.Utilities.CommonLib import CommonFunctions
 from QA.Base.Config import MyConfigFiles

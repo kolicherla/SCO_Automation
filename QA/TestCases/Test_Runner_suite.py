@@ -1,7 +1,8 @@
-#
-# from QA.TestCases.Test_SCAR_Module import Test_QETLogin_Application
-#
-# #
-# # class Test_Runner():
-# #     def Test_ExecuteAll(self):
-# #         print('Test Cases executed')
+
+
+from QA.TestCases.Test_PCN_Module import Test_PCN
+
+
+class Test_Runner():
+    def Test_ExecuteAll(self):
+        print('Test Cases executed')

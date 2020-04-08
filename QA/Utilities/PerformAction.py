@@ -3,12 +3,13 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from QA.Base.Config import MyConfigFiles
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.action_chains import ActionChains
 import QA.Utilities.CommonLib as CL
 import sys
 import os
-
-
 
 class PerformActions():
 
@@ -63,7 +64,7 @@ class PerformActions():
 #locator:value of the locator used
 #locatorytype:Name of the locator used
 #Value: Value to be passed
-    def enterText(self,locator,locatorType, Value):
+    def enterText(self,locator,locatorType,Value ):
         CL.CommonFunctions.presenceOfElement(self,locator,locatorType)
         try:
             if locatorType.upper() == "XPATH":
@@ -272,10 +273,10 @@ class PerformActions():
             else:
                 sys.exit(locatorType + " -Failed:: Select a valid locator type for " + locator)
             print(locator + " -Assert:: Object is displayed")
-
+            return True
         except:
             print(locator + "--Object is not displayed")
-        return True
+        return False
 
 ##Method to retrieve Function name
     def getFunctionName(self):
@@ -302,3 +303,118 @@ class PerformActions():
         else:
             pass
             #print("Directory ", WorkingDirectory, " already exists")
+
+    def ValidationOnSelectedtext(self, locator, locatorType):
+        try:
+            if locatorType.upper() == "XPATH":
+                objInstance = Select(MyConfigFiles.driver.find_element_by_xpath(locator))
+                objget = objInstance.first_selected_option
+            elif locatorType.upper() == "ID":
+                 objInstance = Select(MyConfigFiles.driver.find_element_by_id(locator))
+                 objget = objInstance.first_selected_option
+            elif locatorType.upper() == "NAME":
+                 objInstance = Select(MyConfigFiles.driver.find_element_by_name(locator))
+                 objget = objInstance.first_selected_option
+            elif locatorType.upper() == "lINKTEXT":
+                 objInstance = Select(MyConfigFiles.driver.find_element_by_link_text(locator))
+                 objget = objInstance.first_selected_option
+            elif locatorType.upper() == "PARTIALLINKTEXT":
+                 objInstance = Select(MyConfigFiles.driver.find_element_by_partial_link_text(locator))
+                 objget = objInstance.first_selected_option
+            elif locatorType.upper() == "TAGNAME":
+                 objInstance = Select(MyConfigFiles.driver.find_element_by_tag_name(locator))
+                 objget = objInstance.first_selected_option
+            elif locatorType.upper() == "CLASSNAME":
+                 objInstance = Select(MyConfigFiles.driver.find_element_by_class_name(locator))
+                 objget = objInstance.first_selected_option
+            elif locatorType.upper() == "CSSSELECTOR":
+                 objInstance = Select(MyConfigFiles.driver.find_element_by_css_selector(locator))
+                 objget = objInstance.first_selected_option
+            else:
+                sys.exit(locatorType + " -Failed:: Select a valid locator type for " + locator)
+            print(locator + " -Assert:: Object is displayed")
+            objvalue = objget.text
+            return objvalue
+        except:
+            sys.exit(locator + "--Object is not displayed")
+
+
+    def getAttributeValue(self, locator, locatorType, attributeName):
+         CL.CommonFunctions.presenceOfElement(self, locator, locatorType)
+         global strText
+         try:
+            if locatorType.upper() == "XPATH":
+               objText = MyConfigFiles.driver.find_element_by_xpath(locator)
+            elif locatorType.upper() == "ID":
+               objText = MyConfigFiles.driver.find_element_by_id(locator)
+            elif locatorType.upper() == "NAME":
+               objText = MyConfigFiles.driver.find_element_by_name(locator)
+            elif locatorType.upper() == "lINKTEXT":
+               objText = MyConfigFiles.driver.find_element_by_link_text(locator)
+            elif locatorType.upper() == "PARTIALLINKTEXT":
+               objText = MyConfigFiles.driver.find_element_by_partial_link_text(locator)
+            elif locatorType.upper() == "TAGNAME":
+               objText = MyConfigFiles.driver.find_element_by_tag_name(locator)
+            elif locatorType.upper() == "CLASSNAME":
+               objText = MyConfigFiles.driver.find_element_by_class_name(locator)
+            elif locatorType.upper() == "CSSSELECTOR":
+               objText = MyConfigFiles.driver.find_element_by_css_selector(locator)
+            else:
+                sys.exit(locatorType + " -Failed:: Select a valid locator type for " + locator)
+            strText = objText.get_attribute(attributeName)
+        # print(locator + " -Success:: Text returned with value:" + strText)
+            return strText
+         except NoSuchElementException:
+           sys.exit(locator + " -Failed:: No Such element found")
+
+
+
+    def Page_Scroll_Actions(self,locator,locatorType ):
+        CL.CommonFunctions.presenceOfElement(self,locator,locatorType)
+        try:
+            if locatorType.upper() == "XPATH":
+                actions = ActionChains(MyConfigFiles.driver)
+                element= MyConfigFiles.driver.find_element_by_xpath(locator)
+                actions.move_to_element(element)
+                actions.perform()
+            elif locatorType.upper() == "ID":
+                actions = ActionChains(MyConfigFiles.driver)
+                element=MyConfigFiles.driver.find_element_by_id(locator)
+                actions.move_to_element(element)
+                actions.perform()
+            elif locatorType.upper() == "NAME":
+                actions = ActionChains(MyConfigFiles.driver)
+                element=MyConfigFiles.driver.find_element_by_name(locator)
+                actions.move_to_element(element)
+                actions.perform()
+            elif locatorType.upper() == "lINKTEXT":
+                actions = ActionChains(MyConfigFiles.driver)
+                element=MyConfigFiles.driver.find_element_by_link_text(locator)
+                actions.move_to_element(element)
+                actions.perform()
+            elif locatorType.upper() == "PARTIALLINKTEXT":
+                actions = ActionChains(MyConfigFiles.driver)
+                element=MyConfigFiles.driver.find_element_by_partial_link_text(locator)
+                actions.move_to_element(element)
+                actions.perform()
+            elif locatorType.upper() == "TAGNAME":
+                actions = ActionChains(MyConfigFiles.driver)
+                element=MyConfigFiles.driver.find_element_by_tag_name(locator)
+                actions.move_to_element(element)
+                actions.perform()
+            elif locatorType.upper() == "CLASSNAME":
+                actions = ActionChains(MyConfigFiles.driver)
+                element = MyConfigFiles.driver.find_element_by_class_name(locator)
+                actions.move_to_element(element)
+                actions.perform()
+            elif locatorType.upper() == "CSSSELECTOR":
+                actions = ActionChains(MyConfigFiles.driver)
+                element=MyConfigFiles.driver.find_element_by_css_selector(locator)
+                actions.move_to_element(element)
+                actions.perform()
+
+            else:
+                sys.exit(locatorType + " -Failed:: Select a valid locator type for "+locator)
+            # print(locator + " -Success:: Text entered")
+        except NoSuchElementException:
+            sys.exit(locator + "    Failed:: No Such element found")
