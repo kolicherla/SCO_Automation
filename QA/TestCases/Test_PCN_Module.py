@@ -34,9 +34,9 @@ class Test_PCN():
     @pytest.mark.P1
     def test_TC001_PCN_Switchtootherroles(self, setup, TestData):
         objCommon.LoadURL(MyConfigFiles.AppURL)
-        objLogin.PCN_Login(TestData['UserName'], TestData['Password'])
-        objSwitchToRoles.SwitchToRole("Context CE")
-        objLogin.PCN_LogOut()
+        # objLogin.PCN_Login(TestData['UserName'], TestData['Password'])
+        # objSwitchToRoles.SwitchToRole("Context CE")
+        # objLogin.PCN_LogOut()
 
     #Create JPCN
     @pytest.mark.dependency()

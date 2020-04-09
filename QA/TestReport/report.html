@@ -398,7 +398,7 @@ function filter_table(elem) {
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 08-Apr-2020 at 11:23:43 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v1.22.0</p>
+    <p>Report generated on 09-Apr-2020 at 14:38:20 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v1.22.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -414,8 +414,8 @@ function filter_table(elem) {
         <td>Python</td>
         <td>3.7.0</td></tr></table>
     <h2>Summary</h2>
-    <p>1 tests ran in 39.38 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>1 tests ran in 27.63 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -426,24 +426,16 @@ function filter_table(elem) {
           <th>Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="failed results-table-row">
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Failed</td>
+          <td class="col-result">Passed</td>
           <td class="col-name">Test_PCN_Module.py::Test_PCN::test_TC001_PCN_Switchtootherroles</td>
-          <td class="col-duration">26.73</td>
+          <td class="col-duration">10.91</td>
           <td class="col-links"><a class="url" href="https://www.google.com" target="_blank">URL</a> </td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div><div>Log description</div></div>
-            <div><div><img src="Test_PCN_Module.py_Test_PCN_test_TC001_PCN_Switchtootherroles.png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log">self = &lt;QA.TestCases.Test_PCN_Module.Test_PCN object at 0x0000025BD2197E48&gt;<br/>setup = None<br/>TestData = {&#x27;TestName&#x27;: &#x27;TC001_PCN_Switchtootherroles&#x27;, &#x27;UserName&#x27;: &#x27;saranyab&#x27;, &#x27;Password&#x27;: &#x27;Juniper@8101988&#x27;, nan: nan}<br/><br/>    @pytest.mark.dependency()<br/>    @pytest.mark.regression<br/>    @pytest.mark.P1<br/>    def test_TC001_PCN_Switchtootherroles(self, setup, TestData):<br/>&gt;       objCommon.LoadURL(MyConfigFiles.AppURL)<br/><br/>Test_PCN_Module.py:36: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/>..\Utilities\CommonLib.py:144: in LoadURL<br/>    self.compareBrowserTitle()<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/>self = &lt;QA.Utilities.CommonLib.CommonFunctions object at 0x0000025BD9299048&gt;<br/><br/>    def compareBrowserTitle(self):<br/>        strTitle = MyConfigFiles.driver.title<br/>        print(&quot;Title of the application displayed: &quot; + strTitle)<br/>        iteration = 0<br/>        while strTitle != MyConfigFiles.App_Title and iteration &lt; 5:                #iterating until the title is matched for 5 iterations<br/>            iteration += 1<br/>            print(&quot;Information:: Browser title did not match,Refreshing the page for iteration:&quot; + str(iteration))<br/>            MyConfigFiles.driver.refresh()<br/>            time.sleep(2)<br/>            strTitle = MyConfigFiles.driver.title<br/>        if strTitle != MyConfigFiles.App_Title:<br/>&gt;           sys.exit(&quot;Browser title did not match even after refresing the page&quot;)<br/><span class="error">E           SystemExit: Browser title did not match even after refresing the page</span><br/><br/>..\Utilities\CommonLib.py:165: SystemExit<br/>---------------------------- Captured stdout setup -----------------------------<br/>
-Looking for [chromedriver 80.0.3987.106 win32] driver in cache 
-File found in cache by path [C:\Users\KolicherlaKumar\.wdm\drivers\chromedriver\80.0.3987.106\win32\chromedriver.exe]
+            <div class="log">---------------------------- Captured stdout setup -----------------------------<br/>Trying to download new driver from http://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_win32.zip
+Unpack archive C:\Users\KolicherlaKumar\.wdm\drivers\chromedriver\80.0.3987.106\win32\chromedriver.zip
 Similar test cases found:1
 <br/>----------------------------- Captured stdout call -----------------------------<br/>Title of the application displayed: Google
-Information:: Browser title did not match,Refreshing the page for iteration:1
-Information:: Browser title did not match,Refreshing the page for iteration:2
-Information:: Browser title did not match,Refreshing the page for iteration:3
-Information:: Browser title did not match,Refreshing the page for iteration:4
-Information:: Browser title did not match,Refreshing the page for iteration:5
 <br/></div></td></tr></tbody></table></body></html>
